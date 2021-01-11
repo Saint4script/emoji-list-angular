@@ -1,0 +1,19 @@
+<div class="pics">
+  <ul>
+    <li *ngFor="let emoji of favEmojis">
+      <div class="preview" style="background-image: url({{emoji.link}});"></div>
+      <div class="only-show-on-hover">  
+        <img src='{{emoji.link}}'>
+      </div>
+
+      <div class="emoji-content">
+        <div class="name">{{emoji.name}}</div>
+        <a href="{{emoji.link}}" class="link" target="_blank">Перейти</a>
+      </div>
+
+      <div class="actions">
+        <span (click)="delEmojiFromFav(emoji.name)" class="del"></span>
+      </div>
+    </li>
+  </ul>
+</div>

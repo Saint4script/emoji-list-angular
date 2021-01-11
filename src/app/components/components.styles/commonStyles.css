@@ -1,0 +1,118 @@
+:host{
+  background-color: rgb(255, 255, 255);
+}
+ul{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 1em;
+  padding: 0 1em 0 1em;
+}
+h1{
+  color: aliceblue;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+li{
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 1fr 1fr;
+  background-color: #fff;
+
+  margin-bottom: 1em;
+  border: 1px solid rgba(113, 144, 255, 0.5);
+  border-radius: 15px;
+}
+.emoji-content{
+  text-align: center;
+}
+.emoji-content .name{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 5px auto 5px auto;                            /* WHY DOESNT WORK*/
+  color: #000000;
+  text-transform: uppercase;
+  overflow: scroll;
+  margin-right: 1em;
+  margin-left: 1em;
+}
+.emoji-content .link{
+  text-align: center;
+  color: #aeaeae;
+  overflow: scroll;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.preview{
+  background-repeat: no-repeat;
+  background-size: 50px 50px;
+  background-position: 50% 50%;
+}
+.actions{
+  display: flex;
+  justify-content: space-around;
+}
+.fav{
+  width: 32px;
+  height: 32px;
+}
+.del{
+  width: 27px;
+  height: 27px;
+}
+.fav{
+  /* background-image: url("../media/img/b.svg"); */
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../media/img/heart.svg");
+}
+.del{
+  background-image: url("../media/img/cross.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.fourty-two{
+  background-image: url("../media/img/b.svg");
+}
+.actions{
+  height: 50px;
+}
+.actions span:hover{
+  width: 40px;
+  height: 40px;
+}
+
+.only-show-on-hover img{
+  width: 12em;
+  height: 12em;
+}
+.only-show-on-hover {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 40;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 40px 0;
+  color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  background-color: rgba(51,51,51,.75);
+}
+.preview:hover+div.only-show-on-hover  {
+  opacity: 1;
+}

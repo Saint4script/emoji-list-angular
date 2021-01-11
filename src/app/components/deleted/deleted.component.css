@@ -1,0 +1,84 @@
+:host{
+  background-color: rgb(0, 0, 0);
+  min-height: 100%;
+}
+h1{
+  color: aliceblue;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+li{
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 5fr 1fr 1fr;
+  background-color: rgb(43, 25, 41);
+  margin-bottom: 1em;
+}
+.emoji-content{
+  display: grid;
+  grid-template-columns: 2fr 4fr;
+  justify-content: space-between;
+  vertical-align: middle;
+}
+.emoji-content .name{
+  display: flex;
+  align-items: center;
+  padding: 5px auto 5px auto;                            /* WHY DOESNT WORK*/
+  color: #fff;
+  text-transform: uppercase;
+  overflow: scroll;
+  margin-right: 1em;
+  margin-left: 1em;
+}
+.emoji-content .link{
+  display: flex;
+  align-items: center;
+  color: #fff;
+  overflow: scroll;
+}
+.preview{
+  height: 40px;
+  background-repeat: no-repeat;
+  background-size: 25px 25px;
+  background-position: 50% 50%;
+}
+.peview img{
+  width: 25px;
+  height: 25px;
+}
+div.only-show-on-hover {
+  width: 40%;
+  height: 40%;
+  visibility: hidden;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.preview:hover div.only-show-on-hover  {
+  visibility: visible;
+  z-index: 100;
+}
+.actions{
+  display: flex;
+  justify-content: space-around;
+}
+.actions span{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(55, 37, 85);
+  color: #fff;
+  margin-left: 5px;
+}
+.actions span:hover{
+  background-color: rgb(71, 52, 102);
+  box-shadow: #fff;
+}
