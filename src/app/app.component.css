@@ -7,21 +7,21 @@
 .comp-wrapper{
   display: grid;
   grid-template-columns: 1.5fr 5fr;
-  grid-template-rows:35vh 6fr;
+  grid-template-rows: 100vh 6fr;
   font-size: 15px;
 }
 
 .nav-item .active a{
-  color:aquamarine;
+  color:#7190FF;
 }
 
 .nav-block{
-  background-color: #aaaaaa;
   min-height: 100vh;
   grid-row-start: 1;
   grid-row-end: 3;
-
-
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   background-color: #fafafa;
   border-width: 1px;
   border-style: solid;
@@ -96,18 +96,21 @@ p a{
 
 
 form label {
-  margin:4vh 0;
+  margin:20px 0;
   position:relative;
   display:inline-block;
 }
   
 form label span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding:10px;
   pointer-events: none;
   position:absolute;
   color: black;
   left:0;
-  top:0;
+  top:4px;
   transition: 0.2s;
   transition-timing-function: ease;
   transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -127,7 +130,7 @@ form label input {
 form label input:focus + span, form label input:not(:placeholder-shown) + span {
   opacity:1;
   color:rgb(204, 204, 204);
-  transform: scale(1) translateY(-5vh) translateX(-1vw);
+  transform: scale(1) translateY(-8vh) translateX(-1vw);
   font-family: "Roboto Condensed", sans-serif;
 }
 
@@ -137,56 +140,106 @@ router-outlet{
 }
 
 
+
+
+
 .search-elem{
   display: grid;
-  grid-template-columns: 5fr 1fr 1fr;
-  background-color: rgb(88, 88, 122);
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 1fr 1fr;
+  background-color: #fafafa;
+
   margin-bottom: 1em;
+  border: 1px solid rgba(113, 144, 255, 0.5);
+  border-radius: 15px;
+  width: 15em;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 .emoji-content{
-  display: grid;
-  grid-template-columns: 2fr 4fr;
-  justify-content: space-between;
-  vertical-align: middle;
+  text-align: center;
 }
 .emoji-content .name{
   display: flex;
+  text-align: center;
   align-items: center;
+  justify-content: center;
   padding: 5px auto 5px auto;                            /* WHY DOESNT WORK*/
-  color: rgb(0, 0, 0);
+  color: #000000;
   text-transform: uppercase;
   overflow: scroll;
   margin-right: 1em;
   margin-left: 1em;
 }
 .emoji-content .link{
-  display: flex;
-  align-items: center;
-  color: rgb(0, 0, 0);
+  text-align: center;
+  color: #aeaeae;
   overflow: scroll;
+  text-transform: uppercase;
+  text-decoration: none;
 }
 .preview{
-  height: 40px;
   background-repeat: no-repeat;
-  background-size: 25px 25px;
+  background-size: 50px 50px;
   background-position: 50% 50%;
 }
 .actions{
   display: flex;
   justify-content: space-around;
 }
-.actions span{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  background-color: rgb(55, 37, 85);
-  color: rgb(0, 0, 0);
-  margin-left: 5px;
+.fav{
+  width: 32px;
+  height: 32px;
+}
+.del{
+  width: 27px;
+  height: 27px;
+}
+.fav{
+  background-image: url("./components/media/img/heart.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.del{
+  background-image: url("./components/media/img/cross.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.actions{
+  height: 50px;
 }
 .actions span:hover{
-  background-color: rgb(71, 52, 102);
-  box-shadow: #fff;
+  width: 40px;
+  height: 40px;
+}
+
+.only-show-on-hover img{
+  width: 12em;
+  height: 12em;
+}
+.only-show-on-hover {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 40;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 40px 0;
+  color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  background-color: rgba(51,51,51,.75);
+}
+.preview:hover+div.only-show-on-hover  {
+  opacity: 1;
 }

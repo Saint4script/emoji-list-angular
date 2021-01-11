@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 
 export class EmojiData {
 
-  static allEmojis: Emoji[] = [];
+  static allEmojis: Emoji[] = new Array();
   static favEmojis: Emoji[] = [];
   static delEmojis: Emoji[] = [];
 
@@ -142,5 +142,8 @@ export class Emoji {
   constructor(name:string, link:string) {
     this.name = name;
     this.link = link;
+  }
+  toString(){
+    return ('"name:"' + this.name + ' "'+this.link+'"')
   }
 }

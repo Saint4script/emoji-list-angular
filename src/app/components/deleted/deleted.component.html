@@ -2,7 +2,9 @@
   <ul>
     <li *ngFor="let emoji of delEmojis">
       <div class="preview" style="background-image: url({{emoji.link}});"></div>
-      <div class="only-show-on-hover" style="background-image: url('{{emoji.link}}');"></div>
+      <div class="only-show-on-hover">  
+        <img src='{{emoji.link}}'>
+      </div>
 
       <div class="emoji-content">
         <div class="name">{{emoji.name}}</div>

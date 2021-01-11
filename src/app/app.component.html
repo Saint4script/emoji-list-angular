@@ -37,24 +37,26 @@
           </form>
         </div>
       </div>
-      
-      <div class="search-elem" *ngIf="searchShow">
-        <div class="emoji-content">
-          <div class="name">{{searchName}}</div>
-          <div class="link">{{searchLink}}</div>
-        </div>
-  
-        <div class="preview" style="background-image: url({{searchLink}}); filter: brightness(130%);">
-        <div class="only-show-on-hover">  
-          <img src='{{searchLink}}'>
-        </div>
-        </div>
-        
-        <div class="actions">
-          <span (click)="addEmojiToFav(searchName)">+</span>
-          <span (click)="delEmojiFromAll(searchName)">X</span>
+      <div class="search-wrapper">
+        <div class="search-elem" *ngIf="searchShow">
+
+          <div class="preview" style="background-image: url({{searchLink}});"></div>
+          <div class="only-show-on-hover">  
+            <img src='{{searchLink}}'>
+          </div>
+
+          <div class="emoji-content">
+            <div class="name">{{searchName}}</div>
+            <a href="{{searchLink}}" class="link" target="_blank">Перейти</a>
+          </div>
+    
+          <div class="actions">
+            <span (click)="addEmojiToFav(searchName)" class="fav"></span>
+            <span (click)="delEmojiFromAll(searchName)" class="del"></span>
+          </div>
         </div>
       </div>
+      
   
     </div>
     <router-outlet></router-outlet>
