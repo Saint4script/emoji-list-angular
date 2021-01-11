@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 
 export class EmojiData {
 
-  static allEmojis: Emoji[] = new Array();
+  static allEmojis: Emoji[] = [];
   static favEmojis: Emoji[] = [];
   static delEmojis: Emoji[] = [];
 
@@ -22,20 +22,17 @@ export class EmojiData {
   static getAllEmojis():Emoji[] {
     return this.allEmojis;
   }
+  
   static initAllEmojis():Emoji[] {
     this.getRawEmoji().subscribe( 
       result => {
         let emojiStr = JSON.stringify(result);// Obj to str
         let emojiJSON = JSON.parse(emojiStr);// str to JSON obj
-        let count = 0;
+        console.log(emojiJSON)
         for (let key in emojiJSON) {
-          if (count > 50) {
-break;
-          }
           let url = emojiJSON[key];
           let currentEmoji = new Emoji(key, url);
           EmojiData.allEmojis.push(currentEmoji);
-          count++;
         }
       },
       error => {
@@ -44,9 +41,11 @@ break;
     } )
     return EmojiData.allEmojis
   }
+
   static getFavEmojis():Emoji[] {
     return EmojiData.favEmojis;
   }
+
   static getDelEmojis():Emoji[] {
     return EmojiData.delEmojis;
   }
@@ -136,8 +135,8 @@ break;
 }
 
 export class Emoji {
-  name!:string
-  link!:string
+  name:string
+  link:string
 
   constructor(name:string, link:string) {
     this.name = name;

@@ -3,7 +3,7 @@
 }
 ul{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 1em;
   padding: 0 1em 0 1em;
 }
@@ -66,10 +66,11 @@ li{
   height: 27px;
 }
 .fav{
-  background-image: url("../media/img/heart.svg");
+  /* background-image: url("../media/img/b.svg"); */
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  background-image: url("../media/img/heart.svg");
 }
 .del{
   background-image: url("../media/img/cross.svg");

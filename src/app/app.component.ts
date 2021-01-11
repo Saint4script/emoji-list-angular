@@ -19,13 +19,13 @@ export class AppComponent {
   searchShow!:boolean
   
 
-  allEmojis: Emoji[] = [];
+  allEmojis: Array<Emoji> = Array();
 
   constructor(private http: HttpClient) {
     EmojiData.setHTTP(this.http);
     this.allEmojis = EmojiData.initAllEmojis();
-    console.log(this.allEmojis.length)
-    this.rowJSONadd(this.allEmojis);
+    
+    // this.rowJSONadd(this.allEmojis);
   }
 
   // меняет поле title, которое используется для заполнения заголовка
@@ -75,7 +75,7 @@ export class AppComponent {
   rowJSONadd(emojiArray: Emoji[]) {  //закидываем массив в cookie
     let cookieJSON = "{";
     console.log(emojiArray)
-    console.log(emojiArray.values)
+    console.log(emojiArray.length)
     for(let item in emojiArray) {
       console.log(item);
         // cookieJSON += JSON.stringify(emojiArray[i]) + ",";
