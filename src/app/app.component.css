@@ -1,14 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Arsenal:wght@400;700&display=swap');
 
+@media(min-width: 501px){
+  .comp-wrapper{
+    display: grid;
+    grid-template-columns: 1.5fr 6fr;
+    grid-template-rows: 100vh 6fr;
+    font-size: 15px;
+  }
+  .nav-block{
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+  }
+  .nav-item{
+    padding: 2em 0em 2em 0em;
+    font-size: 1.5em;
+  }
+} 
+@media(max-width: 500px){
+  .comp-wrapper{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10vh 10vh 6fr;
+    font-size: 15px;
+  }
+  .nav-block{
+    justify-content:space-around;
+    flex-direction: row;
+    align-items:center;
+  }
+  .nav-item{
+    padding: 1em 1em 1em 1em;
+    font-size: 1.2em;
+  }
+} 
+
 .scroll-wrapper{
   height: 100vh;
   overflow-y: scroll;
-}
-.comp-wrapper{
-  display: grid;
-  grid-template-columns: 1.5fr 5fr;
-  grid-template-rows: 100vh 6fr;
-  font-size: 15px;
 }
 
 .nav-item .active a{
@@ -16,12 +45,9 @@
 }
 
 .nav-block{
-  min-height: 100vh;
   grid-row-start: 1;
   grid-row-end: 3;
   display: flex;
-  justify-content: center;
-  flex-direction: column;
   background-color: #fafafa;
   border-width: 1px;
   border-style: solid;
@@ -41,11 +67,6 @@
   color: rgb(0, 0, 0);
 }
 
-.nav-item{
-  padding: 2em 0em 2em 0em;
-  font-size: 1.5em;
-  
-}
 
 .nav-item:hover{
   background-color: rgb(241, 218, 255);
@@ -63,12 +84,6 @@ p a{
 .nav-item p a:hover{
   text-decoration: none;
   color: rgb(0, 0, 0);
-}
-
-.nav-item hr{
-  width: 90%;
-  margin-right: auto;
-  margin-left: auto;
 }
 
 
