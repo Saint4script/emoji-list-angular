@@ -2,6 +2,7 @@ import { HttpClient, HttpHandler } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { EmojiData, Emoji } from "src/app/services/requestSender.service";
 import { Injectable } from '@angular/core';
+import { AppComponent } from "src/app/app.component";
 
 @Injectable()
 @Component({
@@ -24,6 +25,10 @@ export class FavouriteComponent implements OnInit {
 
   delEmojiFromFav(emojiName:string) {
     EmojiData.delEmojiFromFav(emojiName);
+    var that = this;
+    setTimeout(() => {
+      AppComponent.rawJSONadd("fav",EmojiData.favEmojis);
+    }, 1000);
   }
 
 }

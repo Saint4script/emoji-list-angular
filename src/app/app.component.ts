@@ -12,6 +12,7 @@ import { HttpClient, HttpHandler } from '@angular/common/http';
 export class AppComponent {
   title = 'ALL';
   input!:string;
+  me!:AppComponent;
 
   
   searchName!:string;
@@ -22,10 +23,10 @@ export class AppComponent {
   allEmojis: Array<Emoji> = Array();
 
   constructor(private http: HttpClient) {
+    new EmojiData();
     EmojiData.setHTTP(this.http);
     this.allEmojis = EmojiData.initAllEmojis();
-    
-    // this.rowJSONadd(this.allEmojis);
+    this.me = this;
   }
 
   // меняет поле title, которое используется для заполнения заголовка
@@ -47,7 +48,6 @@ export class AppComponent {
   }
 
   search(event:any) {
-    let searcher = document.getElementById("searcher");
     let elem = event.target.value;
     for(let i = 0; i < this.allEmojis.length; i++) {
       if(this.allEmojis[i].name == elem) {
@@ -66,36 +66,17 @@ export class AppComponent {
 
   addEmojiToFav(emojiName:string) {
     EmojiData.addEmojiToFav(emojiName);
+  
   }
 
   delEmojiFromAll(emojiName:string) {
     EmojiData.delEmojiFromAll(emojiName);
   }
 
-  rowJSONadd(emojiArray: Emoji[]) {  //закидываем массив в cookie
-    let cookieJSON = "{";
-    console.log(emojiArray)
-    console.log(emojiArray.length)
-    for(let item in emojiArray) {
-      console.log(item);
-        // cookieJSON += JSON.stringify(emojiArray[i]) + ",";
-    }
-    cookieJSON = cookieJSON + emojiArray[emojiArray.length-1] + "}";
-    // console.log(JSON.stringify(Object.assign({}, emojiArray)));
-    // console.log(Object.assign({}, emojiArray))
-    // Object.setPrototypeOf(emojiArray, Object.prototype);
-    // console.log(typeof(q))
-    // document.cookie = "emoji="+JSON.stringify({emojiArray});
-    // console.log(document.cookie);
+  static rawJSONadd(name:string, emojiArray: Emoji[]) {  //закидываем массив в cookie
+    let str = JSON.stringify(emojiArray);
+    document.cookie = name+"="+str;
   }
-  
-  // function row_json_get() { //вытаскиваем массив из cookie
-  //   rows_task = JSON.parse( document.cookie.slice( document.cookie.indexOf( '[' ) ) );
-  //   ReactDOM.render(< My_table rowstask = { rows_task } />, document.getElementById( 'content_table' ));
-  // }
-  // document.cookie = "user=John"; // обновляем только куки с именем 'user'
-  // alert(document.cookie);
-  // document.cookie
 
 }
 

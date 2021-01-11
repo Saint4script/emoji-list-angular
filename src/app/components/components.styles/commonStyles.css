@@ -78,6 +78,9 @@ li{
   background-position: center;
   background-repeat: no-repeat;
 }
+.fourty-two{
+  background-image: url("../media/img/b.svg");
+}
 .actions{
   height: 50px;
 }

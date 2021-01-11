@@ -2,6 +2,7 @@ import { HttpClient, HttpHandler } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { EmojiData, Emoji } from "src/app/services/requestSender.service";
 import {Injectable} from '@angular/core';
+import { AppComponent } from "src/app/app.component";
 
 @Injectable()
 @Component({
@@ -23,6 +24,10 @@ export class DeletedComponent implements OnInit {
 
   delEmojiFromDel(emojiName:string) {
     EmojiData.delEmojiFromDel(emojiName);
+    var that = this;
+    setTimeout(() => {
+      AppComponent.rawJSONadd("del",EmojiData.delEmojis);
+    }, 1000);
   }
 
 }

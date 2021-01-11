@@ -9,7 +9,28 @@ export class EmojiData {
 
   static http: HttpClient;
 
-  constructor(){}
+  constructor(){
+    
+    EmojiData.favEmojis = this.parseCookies("fav");
+    EmojiData.delEmojis = this.parseCookies("del");
+
+    
+  }
+
+  parseCookies(param:string) {
+    let res = []
+    let tmp = document.cookie;
+    if(tmp.indexOf(param+"=") == -1){
+      return []
+    }
+    tmp = tmp.slice(tmp.indexOf(param+"="))
+    tmp = tmp.substring(4, tmp.indexOf("]")+1)??[];
+    let json = JSON.parse(tmp);
+    for(let elem in json) {
+      res.push(new Emoji(json[elem].name, json[elem].link))
+    }
+    return res;
+  }
 
   static setHTTP(http: HttpClient){
     EmojiData.http = http;
@@ -28,7 +49,6 @@ export class EmojiData {
       result => {
         let emojiStr = JSON.stringify(result);// Obj to str
         let emojiJSON = JSON.parse(emojiStr);// str to JSON obj
-        console.log(emojiJSON)
         for (let key in emojiJSON) {
           let url = emojiJSON[key];
           let currentEmoji = new Emoji(key, url);
@@ -132,6 +152,7 @@ export class EmojiData {
       
     }
   }
+  
 }
 
 export class Emoji {
