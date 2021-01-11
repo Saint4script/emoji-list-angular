@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Arsenal:wght@400;700&display=swap');
+
+.scroll-wrapper{
+  height: 100vh;
+  overflow-y: scroll;
+}
+.comp-wrapper{
+  display: grid;
+  grid-template-columns: 1.5fr 5fr;
+  grid-template-rows:35vh 6fr;
+  font-size: 15px;
+}
+
+.nav-item .active a{
+  color:aquamarine;
+}
+
+.nav-block{
+  background-color: #aaaaaa;
+  min-height: 100vh;
+  grid-row-start: 1;
+  grid-row-end: 3;
+
+
+  background-color: #fafafa;
+  border-width: 1px;
+  border-style: solid;
+  border-image: 
+  linear-gradient(
+    to bottom, 
+    #7190FF, 
+    rgba(0, 0, 0, 0)
+  ) 1 100%;
+  border-left: 0;
+}
+
+.nav-item p{
+  /* padding: 0 1em 2em 1em; */
+  text-transform: uppercase;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+.nav-item{
+  padding: 2em 0em 2em 0em;
+  font-size: 1.5em;
+  
+}
+
+.nav-item:hover{
+  background-color: rgb(241, 218, 255);
+  /* border-bottom: 2px solid rgb(207, 164, 255); */
+}
+.nav-item:hover, p a{
+  color: rgb(0, 0, 0);
+  /* text-decoration: line-through; */
+}
+
+p a{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+.nav-item p a:hover{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+.nav-item hr{
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+.static-content-wrapper{
+  display: flex;
+  flex-direction: row;
+  padding: 1em 3em 1em 1em;
+  width: 90%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header{
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: rgb(0, 0, 0);
+}
+.header h1{
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px;
+}
+
+
+form label {
+  margin:4vh 0;
+  position:relative;
+  display:inline-block;
+}
+  
+form label span {
+  padding:10px;
+  pointer-events: none;
+  position:absolute;
+  color: black;
+  left:0;
+  top:0;
+  transition: 0.2s;
+  transition-timing-function: ease;
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  opacity:0.5;
+}
+
+form label input {
+  padding:10px;
+  min-width: 30vw;
+  text-align: left;
+  border: 1px solid #c2c2c2;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  font-size: 1.3em;
+}
+
+form label input:focus + span, form label input:not(:placeholder-shown) + span {
+  opacity:1;
+  color:rgb(204, 204, 204);
+  transform: scale(1) translateY(-5vh) translateX(-1vw);
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+
+router-outlet{
+  display: none;
+}
+
+
+.search-elem{
+  display: grid;
+  grid-template-columns: 5fr 1fr 1fr;
+  background-color: rgb(88, 88, 122);
+  margin-bottom: 1em;
+}
+.emoji-content{
+  display: grid;
+  grid-template-columns: 2fr 4fr;
+  justify-content: space-between;
+  vertical-align: middle;
+}
+.emoji-content .name{
+  display: flex;
+  align-items: center;
+  padding: 5px auto 5px auto;                            /* WHY DOESNT WORK*/
+  color: rgb(0, 0, 0);
+  text-transform: uppercase;
+  overflow: scroll;
+  margin-right: 1em;
+  margin-left: 1em;
+}
+.emoji-content .link{
+  display: flex;
+  align-items: center;
+  color: rgb(0, 0, 0);
+  overflow: scroll;
+}
+.preview{
+  height: 40px;
+  background-repeat: no-repeat;
+  background-size: 25px 25px;
+  background-position: 50% 50%;
+}
+.actions{
+  display: flex;
+  justify-content: space-around;
+}
+.actions span{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(55, 37, 85);
+  color: rgb(0, 0, 0);
+  margin-left: 5px;
+}
+.actions span:hover{
+  background-color: rgb(71, 52, 102);
+  box-shadow: #fff;
+}

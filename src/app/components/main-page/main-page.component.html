@@ -1,0 +1,41 @@
+<div class="pics">
+  <ul>
+    <div class="ng-if-container" *ngFor="let emoji of allEmojis">
+      <li *ngIf="favEmojis.includes(emoji)">
+        <div class="preview" style="background-image: url({{emoji.link}}); filter: brightness(130%);"></div>
+        <div class="only-show-on-hover">  
+          <img src='{{emoji.link}}'>
+        </div>
+
+        <div class="emoji-content">
+          <div class="name">{{emoji.name}}</div>
+          <a href="{{emoji.link}}" class="link" target="_blank">Перейти</a>
+        </div>
+  
+        <div class="actions">
+          <span (click)="addEmojiToFav(emoji.name)" class="fav"></span>
+          <span (click)="delEmojiFromAll(emoji.name)" class="del"></span>
+        </div>
+      </li>
+
+      <li *ngIf="!favEmojis.includes(emoji)">
+
+        <div class="preview" style="background-image: url({{emoji.link}}); filter: brightness(65%);"></div>
+        <div class="only-show-on-hover">  
+          <img src='{{emoji.link}}'>
+        </div>
+        
+
+        <div class="emoji-content">
+          <div class="name">{{emoji.name}}</div>
+          <a href="{{emoji.link}}" class="link" target="_blank">Перейти</a>
+        </div>
+        
+        <div class="actions">
+          <span (click)="addEmojiToFav(emoji.name)" class="fav"></span>
+          <span (click)="delEmojiFromAll(emoji.name)" class="del"></span>
+        </div>
+      </li>
+    </div>
+  </ul>
+</div>
